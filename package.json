@@ -1,7 +1,8 @@
 {
   "name": "bot-dnd",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "dependencies": {
-    
+    "intel": "^1.2.0",
+    "node-telegram-bot-api": "^0.30.0"
   }
 }

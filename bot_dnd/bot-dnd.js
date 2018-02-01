@@ -1,6 +1,6 @@
 require('./functions.js');
 var telegramBot = require('node-telegram-bot-api'),
-    config = require('./config.json'),
+    config = require('../config/config.json'),
     bot = new telegramBot(config.botToken, {polling: true});
 
 bot.onText(/echo (.+)/, function (msg, match) {
@@ -12,7 +12,8 @@ bot.onText(/echo (.+)/, function (msg, match) {
 bot.onText(/start/, function (msg, match) {
     var fromId = msg.chat.id,
         text = '/roll <число>:  кидает кубик  с максимальным значением -  <число>\n' +
-        '/stat: показывает накинутые статы для персонажа первого уровня (модификаторы)';
+            '/stat: показывает накинутые статы для персонажа первого уровня (модификаторы)\n' +
+            '/gen Имя: генерирует персонажа Имя';
 
     bot.sendMessage(msg.chat.id, text);
 });
@@ -25,4 +26,8 @@ bot.onText(/stat/, function (msg, match) {
 
 bot.onText(/roll(.+)/, function (msg, match) {
     bot.sendMessage(msg.chat.id, rollDice(parseInt(match[1])));
+});
+
+bot.onText(/gen (.+)/, function (msg, match) {
+    bot.sendMessage(msg.chat.id, generateHero(match[1]));
 });
