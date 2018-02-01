@@ -58,6 +58,6 @@ typings/
 .env
 
 # config
-config.json
+*config.json*
 
 /.idea
