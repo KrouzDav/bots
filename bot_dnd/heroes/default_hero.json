@@ -18,5 +18,19 @@
     "mod_charisma" : 0,
     "countFreePoints" : 0
   },
+  "inventory" : {
+
+  },
+  "armor" : {
+
+  },
+  "weapon" : {
+
+  },
+  "fight_characteristics" : {
+    "ca" : 10,
+    "max_hp" : 10,
+    "hp" : 10
+  },
   "profession" : "default_profession"
 }

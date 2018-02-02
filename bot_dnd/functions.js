@@ -67,6 +67,10 @@ generateName = function () {
     return 'Классное имя';
 };
 
+dataProcessing = function (name, essence, number) {
+    return 'name: ' + name + ' essence: ' + essence + ' number: ' + number;
+};
+
 setFileJson = function (file, json) {
     json = json || {};
     try {

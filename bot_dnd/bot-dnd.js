@@ -11,9 +11,10 @@ bot.onText(/echo (.+)/, function (msg, match) {
 
 bot.onText(/start/, function (msg, match) {
     var fromId = msg.chat.id,
-        text = '/roll <число>:  кидает кубик  с максимальным значением -  <число>\n' +
+        text = '/roll<число>:  кидает кубик  с максимальным значением -  <число>\n' +
             '/stat: показывает накинутые статы для персонажа первого уровня (модификаторы)\n' +
-            '/gen Имя: генерирует персонажа Имя';
+            '/gen <Имя>: генерирует персонажа Имя\n' +
+            '/hero <Имя> <характеристика> <число>: увеличивает характеристику на указанное значение';
 
     bot.sendMessage(msg.chat.id, text);
 });
@@ -30,4 +31,8 @@ bot.onText(/roll(.+)/, function (msg, match) {
 
 bot.onText(/gen (.+)/, function (msg, match) {
     bot.sendMessage(msg.chat.id, generateHero(match[1]));
+});
+
+bot.onText(/hero(.+) (.+) (.+)/, function (msg, match) {
+    bot.sendMessage(msg.chat.id, dataProcessing(match[1], match[2], match[3]));
 });
