@@ -19,8 +19,8 @@ bot.onText(/start/, function (msg, match) {
 });
 
 bot.onText(/stat/, function (msg, match) {
-    var str = getModificator('Сила') + getModificator('Ловкость') + getModificator('Харизма') +
-    getModificator('Телосложение') + getModificator('Интеллект') + getModificator('Мудрость');
+    var str = setModificator('Сила') + setModificator('Ловкость') + setModificator('Харизма') +
+    setModificator('Телосложение') + setModificator('Интеллект') + setModificator('Мудрость');
     bot.sendMessage(msg.chat.id, str);
 });
 

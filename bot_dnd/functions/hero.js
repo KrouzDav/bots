@@ -3,7 +3,7 @@
  * @param statName Характеристика
  * @returns {string}
  */
-getModificator = function (statName) {
+setModificator = function (statName) {
     var numb = rollDice(20);
     return statName + ': ' + ((numb-10.1)/2).toFixed() + '\n';
 };

@@ -29,6 +29,9 @@
     "weapon_left":"",
     "weapon_range":""
   },
+  "possession" : {
+
+  },
   "fight_characteristics" : {
     "ca" : 10,
     "max_hp" : 10,
