@@ -1,4 +1,4 @@
-require('./functions.js');
+require('./functions/functions.js');
 var telegramBot = require('node-telegram-bot-api'),
     config = require('./config/config.json'),
     bot = new telegramBot(config.bot_token, {polling: true});
@@ -10,12 +10,10 @@ bot.onText(/echo (.+)/, function (msg, match) {
 });
 
 bot.onText(/start/, function (msg, match) {
-    var fromId = msg.chat.id,
-        text = '/roll<число>:  кидает кубик  с максимальным значением -  <число>\n' +
+    var text = '/roll<число>:  кидает кубик  с максимальным значением -  <число>\n' +
             '/roll20 /roll4 /roll6 /roll8 /roll10 \n' +
             '/stat: показывает накинутые статы для персонажа первого уровня (модификаторы)\n' +
-            '/gen <Имя>: генерирует персонажа Имя\n' +
-            '/hero <Имя> <характеристика> <число>: увеличивает характеристику на указанное значение';
+            '/gen <Имя>: генерирует персонажа Имя\n';
 
     bot.sendMessage(msg.chat.id, text);
 });
@@ -38,6 +36,22 @@ bot.onText(/gen (.+)/, function (msg, match) {
     bot.sendMessage(msg.chat.id, generateHero(match[1]));
 });
 
-bot.onText(/hero (.+) (.+) (.+)/, function (msg, match) {
+bot.onText(/edithero (.+) (.+) (.+)/, function (msg, match) {
     bot.sendMessage(msg.chat.id, dataProcessing(match[1], match[2], match[3]));
 });
+
+bot.onText(/hero (.+)/, function (msg, match) {
+    bot.sendMessage(msg.chat.id, getHero(match[1]));
+});
+
+bot.onText(/menu/, function (msg, match) {
+    var text =
+        '/gen <Имя>: генерирует персонажа Имя\n' +
+        '/edithero <Имя> <характеристика> <число>: увеличивает характеристику на указанное значение' +
+        '/hero <Имя>: показывает характеристики персонажа';
+
+    bot.sendMessage(msg.chat.id, text);
+});
+
+
+

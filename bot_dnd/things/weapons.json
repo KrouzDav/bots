@@ -1,0 +1,22 @@
+{
+  "dirk" : {
+    "name" : "Кинжал",
+    "roll_damage" : "4",
+    "add_damage" : "0"
+  },
+  "chort_sword" : {
+    "name" : "Короткий меч",
+    "roll_damage" : "6",
+    "add_damage" : "0"
+  },
+  "long_sword" : {
+    "name" : "Длинный меч",
+    "roll_damage" : "8",
+    "add_damage" : "0"
+  },
+  "rapier" : {
+    "name" : "Рапира",
+    "roll_damage" : "8",
+    "add_damage" : "0"
+  }
+}

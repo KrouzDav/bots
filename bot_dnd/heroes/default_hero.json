@@ -25,12 +25,15 @@
 
   },
   "weapon" : {
-
+    "weapon_right":"",
+    "weapon_left":"",
+    "weapon_range":""
   },
   "fight_characteristics" : {
     "ca" : 10,
     "max_hp" : 10,
     "hp" : 10
   },
-  "profession" : "default_profession"
+  "profession" : "default_profession",
+  "gold" : 0
 }
