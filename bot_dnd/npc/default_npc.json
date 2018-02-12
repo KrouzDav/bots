@@ -1,0 +1,42 @@
+{
+  "name" : "default_name",
+  "class" : "default_class",
+  "level" : "1",
+  "exp" : "0",
+  "characteristics" : {
+    "strenght" : 0,
+    "dexterity" : 0,
+    "physique" : 0,
+    "intelligence" : 0,
+    "sapience" : 0,
+    "charisma" : 0,
+    "mod_strenght" : 0,
+    "mod_dexterity" : 0,
+    "mod_physique" : 0,
+    "mod_intelligence" : 0,
+    "mod_sapience" : 0,
+    "mod_charisma" : 0,
+    "countFreePoints" : 0
+  },
+  "inventory" : {
+
+  },
+  "armor" : {
+
+  },
+  "weapon" : {
+    "weapon_right":"",
+    "weapon_left":"",
+    "weapon_range":""
+  },
+  "possession" : {
+
+  },
+  "fight_characteristics" : {
+    "ca" : 10,
+    "max_hp" : 8,
+    "hp" : 8
+  },
+  "profession" : "default_profession",
+  "gold" : 0
+}

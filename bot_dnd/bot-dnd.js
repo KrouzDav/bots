@@ -13,7 +13,8 @@ bot.onText(/start/, function (msg, match) {
     var text = '/roll<число>:  кидает кубик  с максимальным значением -  <число>\n' +
             '/roll20 /roll4 /roll6 /roll8 /roll10 \n' +
             '/stat: показывает накинутые статы для персонажа первого уровня (модификаторы)\n' +
-            '/gen <Имя>: генерирует персонажа Имя\n';
+            '/gen <Имя>: генерирует персонажа Имя\n' +
+            '/attack <Имя> <оружие>: отображает вероятность попадания и урон\n';
 
     bot.sendMessage(msg.chat.id, text);
 });
@@ -36,6 +37,10 @@ bot.onText(/gen (.+)/, function (msg, match) {
     bot.sendMessage(msg.chat.id, generateHero(match[1]));
 });
 
+bot.onText(/gennpc (.+)/, function (msg, match) {
+    bot.sendMessage(msg.chat.id, generateNpc(match[1]));
+});
+
 bot.onText(/edithero (.+) (.+) (.+)/, function (msg, match) {
     bot.sendMessage(msg.chat.id, dataProcessing(match[1], match[2], match[3]));
 });
@@ -44,11 +49,16 @@ bot.onText(/hero (.+)/, function (msg, match) {
     bot.sendMessage(msg.chat.id, getHero(match[1]));
 });
 
+bot.onText(/attack (.+) (.+)/, function (msg, match) {
+    var res = attackHero(match[1], match[2]);
+    bot.sendMessage(msg.chat.id, 'Атака (попадание): ' + res.attack + '\nУрон: ' + res.damage);
+});
+
 bot.onText(/menu/, function (msg, match) {
     var text =
         '/gen <Имя>: генерирует персонажа Имя\n' +
-        '/edithero <Имя> <характеристика> <число>: увеличивает характеристику на указанное значение' +
-        '/hero <Имя>: показывает характеристики персонажа';
+        '/edithero <Имя> <характеристика> <число>: увеличивает характеристику на указанное значение\n' +
+        '/hero <Имя>: показывает характеристики персонажа\n';
 
     bot.sendMessage(msg.chat.id, text);
 });
