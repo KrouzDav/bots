@@ -63,5 +63,7 @@ bot.onText(/menu/, function (msg, match) {
     bot.sendMessage(msg.chat.id, text);
 });
 
-
+bot.onText(/story (.+)/, function (msg, match) {
+    bot.sendMessage(msg.chat.id, setStory(match[1]));
+});
 

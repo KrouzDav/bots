@@ -15,7 +15,7 @@ generateHero = function (nameHero, classHero, levelHero) {
     levelHero = levelHero || 1;
     // Устаналиваем данные на случай, если они не указаны в предусловии
     // Читаем default_hero
-    json = getFileJson('./bot_dnd/heroes/default_hero.json');
+    json = getFileJson('../bot_dnd/heroes/default_hero.json');
     json.name = nameHero;
     json.class = classHero;
     json.level = levelHero;
@@ -34,7 +34,7 @@ generateHero = function (nameHero, classHero, levelHero) {
     json.characteristics.charisma = rollDice(20);
     json.characteristics.mod_charisma = ((json.characteristics.charisma-10.1)/2).toFixed();
 
-    setFileJson('./bot_dnd/heroes/' + json.name + '.json', json);
+    setFileJson('../bot_dnd/heroes/' + json.name + '.json', json);
     // создаем nameHero.json
 
     // Выводим информацию о созданном персонаже
@@ -54,7 +54,7 @@ generateName = function () {
 };
 
 dataProcessing = function (name, essence, number) {
-    var json = getFileJson('./bot_dnd/heroes/' + name + '.json');
+    var json = getFileJson('../bot_dnd/heroes/' + name + '.json');
     switch (essence) {
         case 'сила' : {
             json.characteristics.mod_strenght = parseInt(json.characteristics.mod_strenght) + parseInt(number);
@@ -105,13 +105,13 @@ dataProcessing = function (name, essence, number) {
             break;
         }
     }
-    setFileJson('./bot_dnd/heroes/' + name + '.json', json);
+    setFileJson('../bot_dnd/heroes/' + name + '.json', json);
 
     return name + '\n' + essence + ': ' + number;
 };
 
 getHero = function (name) {
-    var json = getFileJson('./bot_dnd/heroes/' + name + '.json');
+    var json = getFileJson('../bot_dnd/heroes/' + name + '.json');
 
     return 'Персонаж: ' + json.name + '\n\n' +
         'Класс: ' + json.class + '\n' +
@@ -136,7 +136,7 @@ generateNpc = function (nameHero, classHero, levelHero) {
     levelHero = levelHero || 1;
     // Устаналиваем данные на случай, если они не указаны в предусловии
     // Читаем default_hero
-    json = getFileJson('./bot_dnd/npc/default_npc.json');
+    json = getFileJson('../bot_dnd/npc/default_npc.json');
     json.name = nameHero;
     json.class = classHero;
     json.level = levelHero;
@@ -155,7 +155,7 @@ generateNpc = function (nameHero, classHero, levelHero) {
     json.characteristics.charisma = rollDice(20);
     json.characteristics.mod_charisma = ((json.characteristics.charisma-10.1)/2).toFixed();
 
-    setFileJson('./bot_dnd/npc/' + json.name + '.json', json);
+    setFileJson('../bot_dnd/npc/' + json.name + '.json', json);
     // создаем nameNpc.json
 
     // Выводим информацию о созданном персонаже
